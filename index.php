@@ -1,5 +1,5 @@
 <?php
-require_once 'model/selecaoModel.php'; // Caminho pode variar dependendo de onde está o seu index.php
+require_once __DIR__ . '/model/selecaoModel.php';
 
 $model = new SelecaoModel();
 $times = $model->listarSelecoes();
@@ -242,7 +242,7 @@ $jogos = [
                         
                         <td class="acoes-col">
                             <a href="../view/editar.php?id=<?= $time['id'] ?>" class="btn-edit" style="text-decoration: none;">✏️</a>
-                            <button class="btn-del" onclick="confirmarDelete(<?= $time['id'] ?>, '<?= $time['nome'] ?>')" title="Excluir">🗑️</button>
+                            <a href="controller/selecaoController.php?acao=deletar&id=<?= $time['id'] ?>" class="btn-del" onclick="return confirm('Tem certeza que deseja excluir o time <?= $time['nome'] ?>?')" title="Excluir" style="text-decoration: none;">🗑️</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -326,6 +326,25 @@ $jogos = [
         </div>
     </div>
 </footer>
+
+<!--Modal Delete -->
+<div id="deleteOverlay" class="delete-overlay">
+    <div class="delete-modal">
+        <form action="./controller/selecaoController.php" method="POST">
+            <input type="hidden" name="acao" value="deletar">
+            
+            <input type="hidden" name="id" id="deleteId">
+            
+            <h3>Atenção!</h3>
+            <p>Tem certeza que deseja excluir a seleção <strong id="deleteNome"></strong>?</p>
+            
+            <div class="modal-botoes">
+                <button type="button" class="btn-cancelar" onclick="fecharDelete()">Cancelar</button>
+                <button type="submit" class="btn-confirmar">Sim, Excluir</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script src="script.js"></script>
 </body>
