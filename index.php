@@ -223,6 +223,7 @@ $jogos = [
                         <th>NOME</th>
                         <th>GRUPO</th>
                         <th>TROFÉUS</th>
+                        <th>CRIAÇÃO</th>
                         <th>AÇÕES</th>
                     </tr>
                 </thead>
