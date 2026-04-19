@@ -174,3 +174,13 @@ function fecharDelete() {
     document.getElementById('deleteOverlay').classList.remove('open');
     document.body.style.overflow = '';
 }
+
+// ── Carrosel do escudo ────────
+  function rolarCarrossel(direcao) {
+    const carrossel = document.getElementById('meuCarrossel');
+    const distancia = 300; 
+    carrossel.scrollBy({ 
+      left: direcao * distancia, 
+      behavior: 'smooth' 
+    });
+  }

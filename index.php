@@ -88,24 +88,32 @@ $jogos = [
     <div class="players-grid">
         <?php
         $jogadores = [
-            ['nome' => 'Gabigol',       'time' => 'Flamengo',    'pos' => 'Atacante',   'gols' => 12, 'badge' => 'Artilheiro', 'color' => '#e8001c'],
-            ['nome' => 'Endrick',       'time' => 'Palmeiras',   'pos' => 'Atacante',   'gols' => 10, 'badge' => 'Revelação',  'color' => '#006633'],
-            ['nome' => 'Pedro',         'time' => 'Flamengo',    'pos' => 'Atacante',   'gols' => 9,  'badge' => null,          'color' => '#e8001c'],
-            ['nome' => 'Raphael Veiga', 'time' => 'Palmeiras',   'pos' => 'Meia',       'gols' => 8,  'badge' => null,          'color' => '#006633'],
-            ['nome' => 'Luciano',       'time' => 'São Paulo',   'pos' => 'Atacante',   'gols' => 7,  'badge' => null,          'color' => '#cc0000'],
-            ['nome' => 'Hulk',          'time' => 'Atlético-MG', 'pos' => 'Atacante',   'gols' => 7,  'badge' => 'Veterano',   'color' => '#000000'],
+            ['nome' => 'Gabigol', 'time' => 'Flamengo', 'pos' => 'Atacante', 'gols' => 6, 'badge' => 'Artilheiro', 'color' => '#e8001c', 'foto' => 'img/gabigol.jpg'],
+            ['nome' => 'Jonathan Calleri', 'time' => 'Sao Paulo', 'pos' => 'Atacante', 'gols' => 11, 'badge' => 'Destaque', 'color' => '#fd2c2c', 'foto' => 'img/Calleri.jpg'],
+            ['nome' => 'Pedro', 'time' => 'Flamengo', 'pos' => 'Atacante', 'gols' => 5, 'badge' => null, 'color' => '#e8001c', 'foto' => 'img/pedro.jpg'],
+            ['nome' => 'Danilo', 'time' => 'Botafogo', 'pos' => 'Meia', 'gols' => 8, 'badge' => null, 'color' => '#000000', 'foto' => 'img/danilo.jpg'],
+            ['nome' => 'Neymar', 'time' => 'Santos', 'pos' => 'Meio-campista', 'gols' => 3, 'badge' => null, 'color' => '#ffffff', 'foto' => 'img/neymar.jpg'],
+            ['nome' => 'Carlos Vinicius', 'time' => 'Atacante', 'pos' => 'Atacante', 'gols' => 7, 'badge' => 'Destaque', 'color' => '#0091ff', 'foto' => 'img/Carlos Vinicius.jpg'],
         ];
         foreach ($jogadores as $j): ?>
-        <div class="player-card" style="--team-color: <?= $j['color'] ?>">
-            <?php if ($j['badge']): ?><span class="player-badge"><?= $j['badge'] ?></span><?php endif; ?>
+            <div class="player-card" style="--team-color: <?= $j['color'] ?>">
+            
+            <?php if ($j['badge']): ?>
+                <span class="player-badge"><?= $j['badge'] ?></span>
+            <?php endif; ?>
+            
             <div class="player-silhouette">
+                <img src="<?= $j['foto'] ?>" alt="Foto do <?= $j['nome'] ?>" class="foto-jogador">
+                
                 <div class="player-number"><?= $j['gols'] ?></div>
-                <div class="player-icon">⚽</div>
             </div>
+            
             <div class="player-info">
                 <span class="player-name"><?= $j['nome'] ?></span>
                 <span class="player-team"><?= $j['time'] ?></span>
+                <span class="player-team">Gols: <?= $j['gols'] ?></span>
             </div>
+            
         </div>
         <?php endforeach; ?>
     </div>
@@ -257,25 +265,43 @@ $jogos = [
     <div class="section-label">ELITE A ELITE</div>
     <h2 class="section-title">ESCUDOS OFICIAIS</h2>
     <div class="section-line"><span></span><span class="dot"></span><span></span></div>
-    <p class="section-sub">Os clubs que disputam a elite do futebol brasileiro</p>
-    <div class="escudos-grid">
-        <?php
-        $escudos = [
-            ['Flamengo','#e8001c','FLA'],['Palmeiras','#006633','PAL'],['Corinthians','#000','COR'],
-            ['São Paulo','#cc0000','SPO'],['Botafogo','#000','BOT'],['Fluminense','#6d1e3e','FLU'],
-            ['Grêmio','#1a237e','GRE'],['Internacional','#c8102e','INT'],['Atlético-MG','#000','CAM'],
-            ['Santos','#000','SAN'],['Bahia','#003da5','BAH'],['Vasco','#000','VAS'],
-        ];
-        foreach ($escudos as [$nome, $cor, $sig]): ?>
-        <div class="escudo-card">
-            <div class="escudo-shape" style="--cor: <?= $cor ?>">
-                <span><?= $sig ?></span>
-            </div>
-            <p><?= $nome ?></p>
+    <p class="section-sub">Os clubes que disputam a elite do futebol brasileiro</p>
+    
+
+    <div class="carrossel-wrapper">
+        
+        <button class="btn-carrossel left" onclick="rolarCarrossel(-1)">&#10094;</button>
+
+        <div class="escudos-grid" id="meuCarrossel">
+            <?php
+            $escudos = [
+                ['Flamengo','#e8001c','FLA', 'img/flamengo.png'],
+                ['Palmeiras','#006633','PAL', 'img/palmeiras.png'],
+                ['Corinthians','#000','COR', 'img/corinthias.png'],
+                ['São Paulo','#cc0000','SPO', 'img/são paulo.png'],
+                ['Botafogo','#000','BOT', 'img/botafogo.png'],
+                ['Fluminense','#6d1e3e','FLU', 'img/fluminense.png'],
+                ['Grêmio','#1a237e','GRE', 'img/gremio.png'],
+                ['Internacional','#c8102e','INT', 'img/internacional.png'],
+                ['Atlético-MG','#ffffff','CAM', 'img/atletico.png'],
+                ['Santos','#0b0b0b','SAN', 'img/santos.png'],
+                ['Bahia','#003da5','BAH', 'img/bahia.png'],
+                ['Vasco','#000','VAS', 'img/vasco.png'],
+            ];
+            foreach ($escudos as [$nome, $cor, $sig, $img]): ?>
+            
+            <div class="escudo-card">
+                <div class="escudo-shape" style="--cor: <?= $cor ?>">
+                    <img src="<?= $img ?>" alt="Escudo do <?= $nome ?>" class="escudo-foto">
+                </div>
+                <p><?= $nome ?></p>
+            </div>     
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
+        <button class="btn-carrossel right" onclick="rolarCarrossel(1)">&#10095;</button>
+
     </div>
-</section>
+    </section>
 
 <!-- CTA INGRESSOS -->
 <section class="cta-section" id="ingressos">
