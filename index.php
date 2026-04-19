@@ -51,7 +51,7 @@ $jogos = [
             <li><a href="#cadastro">Cadastro</a></li>
             <li><a href="#times">Times</a></li>
         </ul>
-        <a href="#ingressos" class="btn-ingressos">INGRESSOS</a>
+        <a href="https://www.futebolcard.com/" class="btn-ingressos">INGRESSOS</a>
         <button class="nav-toggle" id="navToggle">&#9776;</button>
     </div>
 </nav>
@@ -88,7 +88,7 @@ $jogos = [
     <div class="players-grid">
         <?php
         $jogadores = [
-            ['nome' => 'Gabigol', 'time' => 'Flamengo', 'pos' => 'Atacante', 'gols' => 6, 'badge' => 'Artilheiro', 'color' => '#e8001c', 'foto' => 'img/gabigol.jpg'],
+            ['nome' => 'Gabigol', 'time' => 'Santos', 'pos' => 'Atacante', 'gols' => 6, 'badge' => 'Atacante', 'color' => '#ffffff', 'foto' => 'img/gabigol.jpg'],
             ['nome' => 'Jonathan Calleri', 'time' => 'Sao Paulo', 'pos' => 'Atacante', 'gols' => 11, 'badge' => 'Destaque', 'color' => '#fd2c2c', 'foto' => 'img/Calleri.jpg'],
             ['nome' => 'Pedro', 'time' => 'Flamengo', 'pos' => 'Atacante', 'gols' => 5, 'badge' => null, 'color' => '#e8001c', 'foto' => 'img/pedro.jpg'],
             ['nome' => 'Danilo', 'time' => 'Botafogo', 'pos' => 'Meia', 'gols' => 8, 'badge' => null, 'color' => '#000000', 'foto' => 'img/danilo.jpg'],
@@ -310,7 +310,7 @@ $jogos = [
     <div class="cta-content">
         <h2>GARANTA SEU <span class="accent-yellow">INGRESSO</span></h2>
         <p>Viva a emoção ao vivo. Os melhores jogos do Brasileirão 2026 te aguardam.</p>
-        <a href="#" class="btn-cta">🎟 COMPRAR INGRESSOS</a>
+        <a href="https://www.futebolcard.com/" class="btn-cta">🎟 COMPRAR INGRESSOS</a>
     </div>
 </section>
 
